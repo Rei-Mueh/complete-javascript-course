@@ -198,6 +198,7 @@ console.log(totals);
 */
 
 /* Lecture 43 */
+/*
 // Object Literal
 const reinhardt = {
     firstName: 'Reinhardt',
@@ -234,5 +235,169 @@ reinhardt['twitter'] = '@reiMueh';
 console.log(reinhardt);
 
 // Challange
+
 // "Reinhardt has 3 friends, and his best friend is called Harti"
 console.log(`${reinhardt.firstName} has ${reinhardt.friends.length} friends, and his best friend is called ${reinhardt.friends[0]}`);
+*/
+
+/* Lecture 44 */
+/*
+const reinhardt = {
+    firstName: 'Reinhardt',
+    lastName: 'Mueh',
+    birthYear: 1979,
+    job: 'Developer',
+    friends: ['Harti', 'Alex', 'Erek'],
+    hasDriversLicense: false,
+    // Method not a function
+    // calcAge: function() {
+    //     return new Date().getFullYear() - this.birthYear;
+    // }
+    calcAge: function() {
+        this.age = new Date().getFullYear() - this.birthYear;
+        return this.age;
+    },
+    getSummery: function() {
+        return `${reinhardt.firstName} is a ${reinhardt.calcAge()}-years old ${reinhardt.job},  and he has ${reinhardt.hasDriversLicense ? 'a' : 'no'} drivers licence.`
+    }
+};
+// console.log(reinhardt)
+// console.log(`Reinhardt ist ${reinhardt.calcAge()} Jahre alt.`)
+// console.log(reinhardt['calcAge'](2011));
+console.log(reinhardt.calcAge());
+console.log(reinhardt.age);
+
+// Challange
+// Jonas is a 46-year ofl teacher, and he ha a drivers Licence
+
+console.log(reinhardt.getSummery());
+*/
+
+/* Coding challange */
+/*
+const mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function() {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi
+    }
+}
+
+const john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function() {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi
+    }
+}
+
+console.log(mark.calcBMI() > john.calcBMI() ? `${mark.fullName}'s BMI(${mark.bmi}) is higher then ${john.fullName}' (${john.bmi}!)` : `${john.fullName}'s BMI(${john.bmi}) is higher then ${mark.fullName}' (${mark.bmi})!`);
+*/
+
+/* Lecture 47 */
+/*
+for (let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repition ${rep}`);
+}
+*/
+
+/* Lecture 48 */
+/*
+const reinhardt = [
+    'Reinhardt',
+    'Mueh',
+    2025 - 1979,
+    'developer',
+    ['Harti', 'Alex', 'Erek'],
+    true
+];
+
+// const types = [];
+
+// for (let i = 0; i < reinhardt.length; i++) {
+//     console.log(reinhardt[i], typeof (reinhardt[i]));
+//     // types[i] = typeof (reinhardt[i]);
+//     types.push(typeof reinhardt[i]);
+// }
+// console.log(types);
+
+const years = [1991, 2007, 1979, 2020, 2011, 2015];
+const age = [];
+
+for (let i = 0; i < years.length; i++) {
+    age.push(new Date().getFullYear() - years[i]);
+}
+
+console.log(age);
+
+// Continue / Break
+// Continue breaks the current itereation an continues with the next one
+
+const types = [];
+console.log('--- ONLY STRINGS ---')
+for (let i = 0; i < reinhardt.length; i++) {
+    console.log(reinhardt[i], typeof (reinhardt[i]));
+    if (typeof reinhardt[i] !== 'string') continue;
+    types.push(typeof reinhardt[i]);
+}
+console.log(types);
+*/
+
+/* Lecture 49 */
+/*
+for (let exercise = 1; exercise < 4; exercise++) {
+    console.log(`----- Starting exercise ${exercise}`);
+
+    for (let rep = 1; rep < 6; rep++) {
+        console.log(`Excercide ${exercise}: Lifting weight repition ${rep}`);
+    }
+}*/
+
+/* Lecture 50 */
+/*
+// for (let rep = 1; rep < 10; rep++) {
+//     console.log(`Lifting weight repition ${rep}`);
+// }
+
+let rep = 1;
+while (rep <= 10) {
+    // console.log(`WHILE: Lifting weight repition ${rep}`);
+    rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+// counter = 0;
+while (dice !== 6) {
+    console.log(`You rolled ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) console.log('Loop will end ...');
+}
+*/
+
+/* Coding Challange 4 */
+/*
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+function calcTip(bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+
+function calcAverage(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return (sum / arr.length);
+}
+
+for (let i = 0; i < bills.length; i++) {
+    let tip = calcTip(bills[i]);
+    tips.push(tip);
+    totals.push(bills[i] + tip);
+}*/
