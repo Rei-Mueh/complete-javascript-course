@@ -180,6 +180,7 @@ if (friends.includes('Herwig')) {
 */
 
 /* Coding Challange */
+/*
 const bill = 100;
 const calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 // function calcTip(bill) {
@@ -194,3 +195,44 @@ const totals = [tips[0] + bills[0], tips[1] + bills[1], tips[2] + bills[2]];
 console.log(bills);
 console.log(tips);
 console.log(totals);
+*/
+
+/* Lecture 43 */
+// Object Literal
+const reinhardt = {
+    firstName: 'Reinhardt',
+    lastName: 'Mueh',
+    age: 2025 - 1979,
+    job: 'Developer',
+    friends: ['Harti', 'Alex', 'Erek']
+};
+
+console.log(reinhardt);
+
+console.log(reinhardt.lastName);
+console.log(reinhardt['lastName']);
+
+const nameKey = 'Name';
+console.log(reinhardt['first' + nameKey]);
+console.log(reinhardt['last' + nameKey]);
+
+// const interestedIn = prompt('What do you want to know about Reinhardt. Chose between firstName, lastName, age, job and friends.')
+const interestedIn = age;
+
+console.log(interestedIn);
+console.log(reinhardt.interestedIn); // does not work because there is no property interestedIn
+console.log(reinhardt[interestedIn]); // works because now interestedIn gets evaluated.
+
+if (reinhardt[interestedIn]) {
+    console.log(reinhardt[interestedIn]);
+} else {
+    console.log(`Wrong request (${interestedIn}). Chose between firstName, lastName, age, job and friends.`);
+}
+
+reinhardt.location = 'Österreich';
+reinhardt['twitter'] = '@reiMueh';
+console.log(reinhardt);
+
+// Challange
+// "Reinhardt has 3 friends, and his best friend is called Harti"
+console.log(`${reinhardt.firstName} has ${reinhardt.friends.length} friends, and his best friend is called ${reinhardt.friends[0]}`);
